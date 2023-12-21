@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Navabar from './Navabar'
+import News from './News'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  
+} from "react-router-dom";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <Router>
+      <Navabar/>
+      {/* <News pageSize={5}country="in" category="science"/> */}
+      <Route path="/home"> <News key="" pageSize={5}country="in" category=""/></Route>
+      <Route path="/science"> <News key='science' pageSize={5}country="in" category="Science"/></Route>
+      <Route path="/entertainment"> <News pageSize={5}country="in" category="Entertainment"/></Route>
+      <Route path="/general"> <News pageSize={5}country="in" category="General"/></Route>
+      <Route path="/health"> <News pageSize={5}country="in" category="Health"/></Route>
+      <Route path="/sports"> <News pageSize={5}country="in" category="Sports"/></Route>
+      <Route path="/technology"> <News pageSize={5}country="in" category="Technology"/></Route>
+      <Route path="/business"> <News pageSize={5}country="in" category="Business"/></Route>
+      </Router>
     </div>
-  );
+    
+  )
 }
-
-export default App;
+/* business
+entertainment
+general
+health
+science
+sports
+technology */
